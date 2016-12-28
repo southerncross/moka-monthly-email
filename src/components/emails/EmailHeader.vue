@@ -1,9 +1,11 @@
 <template>
-<table :style="{ width: 672 + 'px', height: 100 + 'px' }">
+<table :style="{ width: 672 + 'px', height: 100 + 'px', borderCollapse: 'collapse' }">
   <tbody>
     <tr>
       <td>
-        <img :style="{ height: 28 + 'px' }" src="http://blog.mokahr.com/wp-content/uploads/2016/10/logo-250.png"/>
+        <a href="http://www.mokahr.com" target="_blank">
+          <div :style="[{ width: 142 + 'px', height: 28 + 'px' }, spriteStyle, logoSprite]"/>
+        </a>
       </td>
       <td :style="{ textAlign: 'right' }">
         <a
@@ -31,6 +33,20 @@
 
 <script>
 export default {
-  name: 'EmailHeader'
+  name: 'EmailHeader',
+
+  data() {
+    return {
+      spriteStyle: {
+        backgroundImage: 'url(https://public-cdn.mokahr.com/mkr/email_sprite.png)',
+        backgroundRepeat: 'no-repeat'
+      },
+      logoSprite: {
+        width: '140px',
+        height: '28px',
+        backgroundPosition: '-5px -31px'
+      }
+    }
+  }
 }
 </script>

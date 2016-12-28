@@ -12,12 +12,12 @@
       <!-- body -->
       <tr>
         <td align="center">
-          <email-body :sections="sections"/>
+          <email-body :bannerImgUrl="bannerImgUrl" :sections="sections"/>
         </td>
       </tr>
 
       <!-- footer -->
-      <tr :style="{ height: 310, backgroundColor: '#f4f4f6' }">
+      <tr :style="{ height: 310 + 'px', backgroundColor: '#f4f4f6' }">
         <td align="center" valign="bottom">
           <email-footer/>
         </td>
@@ -59,9 +59,8 @@ export default {
   },
 
   props: {
-    sections: {
-      type: Array
-    }
+    bannerImgUrl: String,
+    sections: Array
   },
 
   data() {

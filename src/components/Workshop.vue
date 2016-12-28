@@ -2,6 +2,7 @@
 <div class="workshop">
   <div class="workshop__editor">
     <editor
+      :bannerImgUrl="bannerImgUrl"
       :sections="sections"
       :sectionChange="sectionChange"
       :articleChange="articleChange"
@@ -9,10 +10,11 @@
       :appendArticle="appendArticle"
       :removeSection="removeSection"
       :removeArticle="removeArticle"
+      :bannerImgUrlChange="bannerImgUrlChange"
     />
   </div>
   <div class="workshop__previewer">
-    <previewer :sections="sections"/>
+    <previewer :bannerImgUrl="bannerImgUrl" :sections="sections"/>
   </div>
 </div>
 </template>
@@ -33,12 +35,14 @@ export default {
 
   data () {
     return {
+      bannerImgUrl: '',
       sections: []
     }
   },
 
   mounted() {
-    this.loadDataFromLS()
+    this.loadSectionsFromLS()
+    this.loadBannerFromLS()
   },
 
   methods: {
@@ -62,34 +66,50 @@ export default {
     sectionChange(sectionId, key, value) {
       const section = this.sections.find((section) => section.id === sectionId)
       section[key] = value
-      this.saveDataToLS()
+      this.saveSectionsToLS()
     },
     articleChange(sectionId, articleId, key, value) {
       const section = this.sections.find((section) => section.id === sectionId)
       const article = section.articles.find((article) => article.id === articleId)
       article[key] = value
-      this.saveDataToLS()
+      this.saveSectionsToLS()
     },
     appendSection() {
       this.sections.push(this.createSection())
-      this.saveDataToLS()
+      this.saveSectionsToLS()
     },
     appendArticle(sectionId) {
       const section = this.sections.find((section) => section.id === sectionId)
       section.articles.push(this.createArticle())
-      this.saveDataToLS()
+      this.saveSectionsToLS()
     },
     removeSection(sectionId) {
       this.sections = this.sections.filter((section) => section.id !== sectionId)
-      this.saveDataToLS()
+      this.saveSectionsToLS()
     },
     removeArticle(sectionId, articleId) {
       const section = this.sections.find((section) => section.id === sectionId)
       section.articles = section.articles.filter((article) => article.id !== articleId)
-      this.saveDataToLS()
+      this.saveSectionsToLS()
     },
-    loadDataFromLS() {
-      const value = window.localStorage.getItem('moka-weekly-email')
+    bannerImgUrlChange(url) {
+      this.bannerImgUrl = url
+      this.saveBannerToLS()
+    },
+    loadBannerFromLS() {
+      const value = window.localStorage.getItem('moka-weekly-email__banner')
+      try {
+        this.bannerImgUrl = JSON.parse(value) || ''
+      } catch (e) {
+        console.error('Failed to load data from local storage: ' + e)
+        this.bannerImgUrl = ''
+      }
+    },
+    saveBannerToLS() {
+      window.localStorage.setItem('moka-weekly-email__banner', JSON.stringify(this.bannerImgUrl))
+    },
+    loadSectionsFromLS() {
+      const value = window.localStorage.getItem('moka-weekly-email__section')
       try {
         this.sections = JSON.parse(value) || [this.createSection()]
       } catch (e) {
@@ -97,8 +117,8 @@ export default {
         this.sections = [this.createSection()]
       }
     },
-    saveDataToLS() {
-      window.localStorage.setItem('moka-weekly-email', JSON.stringify(this.sections))
+    saveSectionsToLS() {
+      window.localStorage.setItem('moka-weekly-email__section', JSON.stringify(this.sections))
     }
   }
 }
