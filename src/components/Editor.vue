@@ -3,7 +3,7 @@
   <div class="panel">
     <div class="text-input">
       <label for="banner">Banner图片</label>
-      <input id="banner" :value="bannerImgUrl" @input="bannerImgUrlChange($event.target.value)"/>
+      <input id="banner" :value="bannerImgUrl" @input="bannerImgUrlChange($event.target.value)" placeholder="Banner图片链接"/>
     </div>
   </div>
   <div v-if="sections.length <= 0" class="empty-hint">邮件里面什么也没有，你不会打算就这样发了吧？</div>
@@ -18,6 +18,7 @@
         :id="section.id"
         :value="section.title"
         @input="sectionChange(section.id, 'title', $event.target.value)"
+        placeholder="段落标题"
       />
     </div>
     <div v-for="(article, articleIdx) in section.articles" :key="article.id" class="panel">
@@ -31,6 +32,7 @@
           :id="`article-title-${article.id}`"
           :value="article.title"
           @input="articleChange(section.id, article.id, 'title', $event.target.value)"
+          placeholder="文章标题"
         />
       </div>
       <div class="article-preview-text text-input">
@@ -39,6 +41,7 @@
           :id="`article-preview-text-${article.id}`"
           :value="article.previewText"
           @input="articleChange(section.id, article.id, 'previewText', $event.target.value)"
+          placeholder="文章简介"
         />
       </div>
       <div class="article-img-url text-input">
@@ -47,6 +50,7 @@
           :id="`article-img-url-${article.id}`"
           :value="article.imgUrl"
           @input="articleChange(section.id, article.id, 'imgUrl', $event.target.value)"
+          placeholder="文章配图链接"
         />
       </div>
       <div class="article-link text-input">
@@ -55,6 +59,7 @@
           :id="`article-link-${article.id}`"
           :value="article.link"
           @input="articleChange(section.id, article.id, 'link', $event.target.value)"
+          placeholder="文章链接"
         />
       </div>
       <div class="article-link-text text-input">
@@ -63,6 +68,7 @@
           :id="`article-link-text-${article.id}`"
           :value="article.linkText"
           @input="articleChange(section.id, article.id, 'linkText', $event.target.value)"
+          placeholder="文章链接显示文字，例如“查看更多”"
         />
       </div>
     </div>
