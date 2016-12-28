@@ -6,7 +6,7 @@
       <input id="banner" :value="bannerImgUrl" @input="bannerImgUrlChange($event.target.value)"/>
     </div>
   </div>
-  <div v-if="sections.length <= 0" class="empty-hint">周报里面什么也没有，你不会打算就这样发了吧？</div>
+  <div v-if="sections.length <= 0" class="empty-hint">邮件里面什么也没有，你不会打算就这样发了吧？</div>
   <div v-else v-for="(section, sectionIdx) in sections" :key="section.id" class="panel">
     <div class="order">
       段落#{{sectionIdx + 1}}
