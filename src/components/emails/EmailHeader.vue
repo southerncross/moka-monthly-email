@@ -10,17 +10,17 @@
       <td :style="{ textAlign: 'right' }">
         <a
           _target="blank"
-          href="www.mokahr.com"
+          href="http://www.mokahr.com"
           :style="{
             display: 'inline-block',
-            height: 40 + 'px',
-            padding: '0 16px',
-            fontSize: 14 + 'px',
-            lineHeight: 40 + 'px',
+            padding: '13px 16px',
+            fontSize: '14px',
+            lineHeight: 1,
             textDecoration: 'none',
             color: '#787E91',
             border: '1px solid #DDDFE3',
-            borderRadius: 2 + 'px'
+            borderRadius: '2px',
+            cursor: 'pointer'
           }"
         >
           进入官网

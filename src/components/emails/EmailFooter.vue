@@ -45,12 +45,12 @@
         <table :style="{ borderCollapse: 'collapse' }">
           <tbody>
             <tr>
-              <td :style="{ fontSize: 13 + 'px', lineHeight: 24 + 'px', color: '#9A9FAC' }">
+              <td :style="{ fontSize: 13 + 'px', lineHeight: 24 + 'px', color: '#9A9FAC' }" align="center">
                 {{copyrightZh}}
               </td>
             </tr>
             <tr>
-              <td :style="{ fontSize: 13 + 'px', lineHeight: 24 + 'px', color: '#9A9FAC' }">
+              <td :style="{ fontSize: 13 + 'px', lineHeight: 24 + 'px', color: '#9A9FAC' }" align="center">
                 {{copyrightEn}}
               </td>
             </tr>

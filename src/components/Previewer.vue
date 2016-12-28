@@ -143,7 +143,7 @@ export default {
   top 0
   bottom 0
   z-index 2
-  background-color rgba(0,0,0,0.5)
+  background-color rgba(0,0,0,0.7)
   opacity 0
   pointer-events none
   transition opacity .2s
@@ -152,6 +152,7 @@ export default {
     pointer-events initial
 
 .modal-header
+  position relative
   height 40px
   font-size 1.5rem
 
@@ -168,7 +169,8 @@ export default {
   height 40px
 
 .close-btn
-  float right
+  position absolute
+  right 0
   cursor pointer
   transition transform .2s
   &:hover
