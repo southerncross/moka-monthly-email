@@ -1,25 +1,25 @@
 <template>
-<table :style="{ width: 672 + 'px', borderCollapse: 'collapse' }">
+<table :style="[{ width: '672px' }, tableStyle]">
   <tbody>
     <!-- Title image -->
-    <tr :style="{ height: 245 + 'px' }">
+    <tr :style="{ height: '245px' }">
       <td>
-        <img :style="{ width: 672 + 'px' }" :src="bannerImgUrl"/>
+        <img :style="{ width: '672px' }" :src="bannerImgUrl"/>
       </td>
     </tr>
 
     <!-- Sections -->
     <tr v-for="section in sections">
       <td>
-        <table :style="{ width: '100%', borderCollapse: 'collapse' }">
+        <table :style="[{ width: '100%' }, tableStyle]">
           <tbody>
             <!-- Section title -->
-            <tr :style="{ height: 84 + 'px' }">
+            <tr :style="{ height: '84px' }">
               <td
                 colspan="2"
                 :style="{
-                  paddingTop: 20 + 'px',
-                  fontSize: 24 + 'px',
+                  paddingTop: '20px',
+                  fontSize: '24px',
                   fontWeight: 'bold',
                   color: '#40444F',
                   borderBottom: '1px solid #DDDFE3'
@@ -29,19 +29,19 @@
               </td>
             </tr>
             <!-- Articles -->
-            <tr v-for="(article, idx) in section.articles" :style="{ height: 153 + 'px' }">
-              <td :style="{ width: 192 + 'px', paddingTop: 23 + 'px', borderTop: (section.articles.length > 1 && idx > 0 ? '1px solid #F4F4F6' : null) }" valign="top">
-                <img :style="{ width: 144 + 'px', borderRadius: 2 + 'px' }" :src="article.imgUrl"/></td>
-              <td valign="top" :style="{ paddingTop: 14 + 'px', borderTop: (section.articles.length > 1 && idx > 0 ? '1px solid #F4F4F6' : null) }">
-                <table :style="{ borderCollapse: 'collapse' }">
+            <tr v-for="(article, idx) in section.articles" :style="{ height: '153px' }">
+              <td :style="{ width: '192px', paddingTop: '23px', borderTop: (section.articles.length > 1 && idx > 0 ? '1px solid #F4F4F6' : null) }" valign="top">
+                <img :style="{ width: '144px', borderRadius: '2px' }" :src="article.imgUrl"/></td>
+              <td valign="top" :style="{ paddingTop: '14px', borderTop: (section.articles.length > 1 && idx > 0 ? '1px solid #F4F4F6' : null) }">
+                <table :style="tableStyle">
                   <tbody>
                     <tr>
                       <td
                         :style="{
-                          paddingBottom: 8 + 'px',
-                          fontSize: 20 + 'px',
+                          paddingBottom: '8px',
+                          fontSize: '20px',
                           fontWeight: 'bold',
-                          lineHeight: 30 + 'px',
+                          lineHeight: '30px',
                           color: '#40444F'
                         }"
                       >
@@ -51,9 +51,9 @@
                     <tr>
                       <td
                         :style="{
-                          paddingBottom: 5 + 'px',
-                          fontSize: 13 + 'px',
-                          lineHeight: 20 + 'px',
+                          paddingBottom: '5px',
+                          fontSize: '13px',
+                          lineHeight: '20px',
                           color: '#40444F'
                         }">
                           {{article.previewText}}
@@ -65,7 +65,7 @@
                           _target="blank"
                           :href="article.link"
                           :style="{
-                            fontSize: 13 + 'px',
+                            fontSize: '13px',
                             color: '#0C8CF6',
                             textDecoration: 'none'
                           }"
@@ -91,6 +91,7 @@ export default {
   name: 'EmailBody',
 
   props: {
+    tableStyle: Object,
     bannerImgUrl: String,
     sections: Array
   }

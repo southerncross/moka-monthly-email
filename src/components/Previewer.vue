@@ -1,25 +1,25 @@
 <template>
 <div class="previewer">
-  <table :style="{ width: '100%', height: '100%' }" ref="email">
+  <table :style="[{ width: '100%', height: '100%' }, commonTableStyle]" ref="email">
     <tbody>
       <!-- head -->
-      <tr :style="{ height: 104, backgroundColor: '#f4f4f6' }">
+      <tr :style="{ height: '104px', backgroundColor: '#f4f4f6' }">
         <td align="center">
-          <email-header/>
+          <email-header :tableStyle="commonTableStyle"/>
         </td>
       </tr>
 
       <!-- body -->
       <tr>
         <td align="center">
-          <email-body :bannerImgUrl="bannerImgUrl" :sections="sections"/>
+          <email-body :bannerImgUrl="bannerImgUrl" :sections="sections" :tableStyle="commonTableStyle"/>
         </td>
       </tr>
 
       <!-- footer -->
-      <tr :style="{ height: 310 + 'px', backgroundColor: '#f4f4f6' }">
+      <tr :style="{ height: '310px', backgroundColor: '#f4f4f6' }">
         <td align="center" valign="bottom">
-          <email-footer/>
+          <email-footer :tableStyle="commonTableStyle"/>
         </td>
       </tr>
     </tbody>
@@ -65,6 +65,11 @@ export default {
 
   data() {
     return {
+      commonTableStyle: {
+        msoTableLspace: '0',
+        msoTableRspace: '0',
+        fontFamily: 'Helvetica Neue, Arial, Open Sans, Hiragino Sans GB, -apple-system, Lantinghei SC, Microsoft Yahei, sans-serif'
+      },
       copyHintActive: false,
       copyHintTimer: null,
       showSourceCodeModal: false,

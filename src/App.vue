@@ -28,4 +28,5 @@ body
   padding 0
   font-size 16px
   line-height 1
+  overflow hidden
 </style>

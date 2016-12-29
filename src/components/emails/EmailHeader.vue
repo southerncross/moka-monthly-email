@@ -1,10 +1,10 @@
 <template>
-<table :style="{ width: 672 + 'px', height: 100 + 'px', borderCollapse: 'collapse' }">
+<table :style="[{ width: '672px', height: '100px' }, tableStyle]">
   <tbody>
     <tr>
       <td>
         <a href="http://www.mokahr.com" target="_blank">
-          <div :style="[{ width: 142 + 'px', height: 28 + 'px' }, spriteStyle, logoSprite]"/>
+          <div :style="[{ width: '142px', height: '28px' }, spriteStyle, logoSprite]"/>
         </a>
       </td>
       <td :style="{ textAlign: 'right' }">
@@ -34,6 +34,10 @@
 <script>
 export default {
   name: 'EmailHeader',
+
+  props: {
+    tableStyle: Object
+  },
 
   data() {
     return {

@@ -1,38 +1,38 @@
 <template>
-<table :style="{ width: 672 + 'px', borderCollapse: 'collapse' }">
+<table :style="[{ width: '672px' }, tableStyle]">
   <tbody>
-    <tr :style="{ height: 168 + 'px' }">
+    <tr :style="{ height: '168px' }">
       <!-- QR code -->
-      <td valign="top" :style="{ width: 192 + 'px' }">
-        <div :style="[{ width: 144 + 'px', height: 144 + 'px' }, spriteStyle, qrcodeSprite]"/>
+      <td valign="top" :style="{ width: '192px' }">
+        <div :style="[{ width: '144px', height: '144px' }, spriteStyle, qrcodeSprite]"/>
       </td>
       <!-- Contact info -->
       <td valign="top">
-        <table :style="{ borderCollapse: 'collapse' }">
+        <table :style="tableStyle">
           <tbody>
-            <tr :style="{ height: 40 + 'px' }">
-              <td :style="{ width: 30 + 'px' }">
-                <div :style="[{ width: 15 + 'px', height: 15 + 'px' }, spriteStyle, telephoneSprite]"/>
+            <tr :style="{ height: '40px' }">
+              <td :style="{ width: '30px' }">
+                <div :style="[{ width: '15px', height: '15px' }, spriteStyle, telephoneSprite]"/>
               </td>
-              <td :style="{ fontSize: 13 + 'px', color: '#5C6170' }">
+              <td :style="{ fontSize: '13px', color: '#5C6170' }">
                 {{phone}}
               </td>
             </tr>
-            <tr :style="{ height: 40 + 'px' }">
-              <td :style="{ width: 30 + 'px' }">
-                <div :style="[{ width: 15 + 'px', height: 15 + 'px' }, spriteStyle, emailSprite]"/>
+            <tr :style="{ height: '40px' }">
+              <td :style="{ width: '30px' }">
+                <div :style="[{ width: '15px', height: '15px' }, spriteStyle, emailSprite]"/>
               </td>
-              <td :style="{ fontSize: 13 + 'px', color: '#5C6170' }">
+              <td :style="{ fontSize: '13px', color: '#5C6170' }">
                 <a :style="{ color: '#0C8CF6', textDecoration: 'none' }" :href="`mailto:${email}`">
                   {{email}}
                 </a>
               </td>
             </tr>
-            <tr :style="{ height: 40 + 'px' }">
-              <td :style="{ width: 30 + 'px' }">
-                <div :style="[{ width: 15 + 'px', height: 15 + 'px' }, spriteStyle, locationSprite]"/>
+            <tr :style="{ height: '40px' }">
+              <td :style="{ width: '30px' }">
+                <div :style="[{ width: '15px', height: '15px' }, spriteStyle, locationSprite]"/>
               </td>
-              <td :style="{ fontSize: 13 + 'px', color: '#5C6170' }">
+              <td :style="{ fontSize: '13px', color: '#5C6170' }">
                 {{location}}
               </td>
             </tr>
@@ -41,16 +41,16 @@
       </td>
     </tr>
     <tr>
-      <td colspan="2" align="center" :style="{ height: 90 + 'px', borderTop: '1px solid #DDDFE3' }">
-        <table :style="{ borderCollapse: 'collapse' }">
+      <td colspan="2" align="center" :style="{ height: '90px', borderTop: '1px solid #DDDFE3' }">
+        <table :style="tableStyle">
           <tbody>
             <tr>
-              <td :style="{ fontSize: 13 + 'px', lineHeight: 24 + 'px', color: '#9A9FAC' }" align="center">
+              <td :style="{ fontSize: '13px', lineHeight: '24px', color: '#9A9FAC' }" align="center">
                 {{copyrightZh}}
               </td>
             </tr>
             <tr>
-              <td :style="{ fontSize: 13 + 'px', lineHeight: 24 + 'px', color: '#9A9FAC' }" align="center">
+              <td :style="{ fontSize: '13px', lineHeight: '24px', color: '#9A9FAC' }" align="center">
                 {{copyrightEn}}
               </td>
             </tr>
@@ -65,6 +65,10 @@
 <script>
 export default {
   name: 'EmailHeader',
+
+  props: {
+    tableStyle: Object
+  },
 
   data() {
     return {
