@@ -24,7 +24,7 @@
             cursor: 'pointer'
           }"
         >
-          申请试用
+          申请订阅
           <span :style="[{ display: 'inline-block', verticalAlign: '-3px' }, spriteStyle, checkSprite]"/>
         </a>
       </td>
