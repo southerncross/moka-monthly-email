@@ -33,7 +33,7 @@
                           paddingBottom: '10px',
                           fontSize: '20px',
                           fontWeight: 'bold',
-                          lineHeight: '30px',
+                          lineHeight: '24px',
                           color: 'black'
                         }"
                       >

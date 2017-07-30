@@ -27,15 +27,15 @@
               <td :style="{ width: '35px', paddingTop: '22px' }" valign="top">
                 <div :style="[spriteStyle, speakSprite]" :src="article.imgUrl"/>
               </td>
-              <td valign="top" :style="{ padding: '14px 48px 18px 0' }">
+              <td valign="top" :style="{ padding: '24px 48px 18px 0' }">
                 <table :style="tableStyle">
                   <tbody>
                     <tr>
                       <td
                         :style="{
-                          fontSize: '24px',
+                          fontSize: '20px',
                           fontWeight: 'bold',
-                          lineHeight: '40px',
+                          lineHeight: '24px',
                           color: 'black'
                         }"
                       >

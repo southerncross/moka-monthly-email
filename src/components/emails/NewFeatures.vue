@@ -27,15 +27,15 @@
               <td :style="{ width: '35px', paddingTop: '23px' }" valign="top">
                 <div :style="[spriteStyle, article.type === 'newFeature' ? rocketSprite: thunderSprite]" :src="article.imgUrl"/>
               </td>
-              <td valign="top" :style="{ padding: '14px 48px 0 0' }">
+              <td valign="top" :style="{ padding: '24px 48px 0 0' }">
                 <table :style="tableStyle">
                   <tbody>
                     <tr>
                       <td
                         :style="{
-                          fontSize: '24px',
+                          fontSize: '20px',
                           fontWeight: 'bold',
-                          lineHeight: '40px',
+                          lineHeight: '24px',
                           color: 'black'
                         }"
                       >
