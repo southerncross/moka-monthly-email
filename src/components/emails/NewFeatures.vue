@@ -75,7 +75,7 @@
 
     <tr>
       <td :style="{ paddingTop: '10px', textAlign: 'center' }">
-        <a href="http://www.mokahr.com"
+        <a href="http://www.mokahr.com/subscribe-email"
           _target="blank"
           :style="{
             display: 'inline-block',
