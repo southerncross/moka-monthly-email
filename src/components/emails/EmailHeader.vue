@@ -1,29 +1,31 @@
 <template>
-<table :style="[{ width: '672px', height: '100px' }, tableStyle]">
+<table :style="[{ width: '720px', height: '80px', padding: '20px 0' }, tableStyle]">
   <tbody>
     <tr>
       <td>
         <a href="http://www.mokahr.com" target="_blank">
-          <div :style="[{ width: '142px', height: '28px' }, spriteStyle, logoSprite]"/>
+          <div :style="[spriteStyle, logoSprite]"/>
         </a>
       </td>
       <td :style="{ textAlign: 'right' }">
         <a
           _target="blank"
-          href="http://www.mokahr.com"
+          href="http://www.mokahr.com/subscribe-email"
           :style="{
             display: 'inline-block',
-            padding: '13px 16px',
-            fontSize: '14px',
+            padding: '6px 16px',
+            fontSize: '13px',
             lineHeight: 1,
             textDecoration: 'none',
-            color: '#787E91',
-            border: '1px solid #DDDFE3',
-            borderRadius: '2px',
+            color: 'white',
+            backgroundColor: '#0C8CF6',
+            border: '1px solid #087BD9',
+            borderRadius: '28px',
             cursor: 'pointer'
           }"
         >
-          进入官网
+          申请试用
+          <span :style="[{ display: 'inline-block', verticalAlign: '-3px' }, spriteStyle, checkSprite]"/>
         </a>
       </td>
     </tr>
@@ -42,13 +44,18 @@ export default {
   data() {
     return {
       spriteStyle: {
-        backgroundImage: 'url(https://public-cdn.mokahr.com/mkr/email_sprite.png)',
+        backgroundImage: 'url(http://moka-public.oss-cn-beijing.aliyuncs.com/email_sprite.png)',
         backgroundRepeat: 'no-repeat'
       },
       logoSprite: {
-        width: '140px',
-        height: '28px',
-        backgroundPosition: '-5px -31px'
+        width: '158px',
+        height: '32px',
+        backgroundPosition: '-0px -0px'
+      },
+      checkSprite: {
+        width: '16px',
+        height: '16px',
+        backgroundPosition: '-84px -32px'
       }
     }
   }

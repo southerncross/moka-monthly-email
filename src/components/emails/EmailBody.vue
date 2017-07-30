@@ -1,85 +1,44 @@
 <template>
-<table :style="[{ width: '672px' }, tableStyle]">
+<table :style="[{ width: '720px' }, tableStyle]">
   <tbody>
     <!-- Title image -->
-    <tr :style="{ height: '245px' }">
+    <tr :style="{ height: '240px' }">
       <td>
-        <img :style="{ width: '672px' }" :src="bannerImgUrl"/>
+        <img :style="{ width: '720px' }" :src="bannerImgUrl"/>
       </td>
     </tr>
 
-    <!-- Sections -->
-    <tr v-for="section in sections">
+    <tr>
       <td>
-        <table :style="[{ width: '100%' }, tableStyle]">
-          <tbody>
-            <!-- Section title -->
-            <tr :style="{ height: '84px' }">
-              <td
-                colspan="2"
-                :style="{
-                  paddingTop: '20px',
-                  fontSize: '24px',
-                  fontWeight: 'bold',
-                  color: '#40444F',
-                  borderBottom: '1px solid #DDDFE3'
-                }"
-              >
-                {{section.title}}
-              </td>
-            </tr>
-            <!-- Articles -->
-            <tr v-for="(article, idx) in section.articles" :style="{ height: '153px' }">
-              <td :style="{ width: '192px', paddingTop: '23px', borderTop: (section.articles.length > 1 && idx > 0 ? '1px solid #F4F4F6' : null) }" valign="top">
-                <img :style="{ width: '144px', borderRadius: '2px' }" :src="article.imgUrl"/></td>
-              <td valign="top" :style="{ paddingTop: '14px', borderTop: (section.articles.length > 1 && idx > 0 ? '1px solid #F4F4F6' : null) }">
-                <table :style="tableStyle">
-                  <tbody>
-                    <tr>
-                      <td
-                        :style="{
-                          paddingBottom: '8px',
-                          fontSize: '20px',
-                          fontWeight: 'bold',
-                          lineHeight: '30px',
-                          color: '#40444F'
-                        }"
-                      >
-                        {{article.title}}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td
-                        :style="{
-                          paddingBottom: '5px',
-                          fontSize: '13px',
-                          lineHeight: '20px',
-                          color: '#40444F'
-                        }">
-                          {{article.previewText}}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a
-                          _target="blank"
-                          :href="article.link"
-                          :style="{
-                            fontSize: '13px',
-                            color: '#0C8CF6',
-                            textDecoration: 'none'
-                          }"
-                        >
-                          {{article.linkText}}
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <weekly-news
+          :tableStyle="tableStyle"
+          :title="typeToSection['weeklyNews'].title"
+          :articles="typeToSection['weeklyNews'].articles"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td :style="{ paddingTop: '24px' }">
+        <activities
+          :tableStyle="tableStyle"
+          :title="typeToSection['activities'].title"
+          :articles="typeToSection['activities'].articles"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td :style="{ paddingTop: '24px' }">
+        <new-features
+          :tableStyle="tableStyle"
+          :title="typeToSection['newFeatures'].title"
+          :articles="typeToSection['newFeatures'].articles"
+          :bottomLeftImg="typeToSection['newFeatures'].bottomLeftImg"
+          :bottomLeftTxt="typeToSection['newFeatures'].bottomLeftTxt"
+          :bottomLeftLink="typeToSection['newFeatures'].bottomLeftLink"
+          :bottomRightImg="typeToSection['newFeatures'].bottomRightImg"
+          :bottomRightTxt="typeToSection['newFeatures'].bottomRightTxt"
+          :bottomRightLink="typeToSection['newFeatures'].bottomRightLink"
+        />
       </td>
     </tr>
   </tbody>
@@ -87,13 +46,23 @@
 </template>
 
 <script>
+import Activities from './Activities'
+import WeeklyNews from './WeeklyNews'
+import NewFeatures from './NewFeatures'
+
 export default {
   name: 'EmailBody',
+
+  components: {
+    Activities,
+    WeeklyNews,
+    NewFeatures
+  },
 
   props: {
     tableStyle: Object,
     bannerImgUrl: String,
-    sections: Array
+    typeToSection: Object
   }
 }
 </script>

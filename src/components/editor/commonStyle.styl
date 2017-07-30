@@ -1,0 +1,61 @@
+@require '../../palette'
+
+$text-input
+  display flex
+  min-height 30px
+  width 100%
+  margin 5px 0
+  font-size 1.125rem
+  line-height 1.5
+  label
+    flex none
+    width 100px
+    margin-right 1em
+    text-align right
+  input
+    flex 1
+    height 30px
+    padding 0 .8em
+    border none
+    background-color color-grey-lighten-4
+    border-radius 2px
+  textarea
+    flex 1
+    min-height 6em
+    padding .5em .8em
+    border none
+    background-color color-grey-lighten-4
+    border-radius 2px
+    resizable none
+
+$panel
+  margin 10px 0
+  padding 10px 20px
+  border 1px solid color-grey-lighten-3
+  border-radius 2px
+  box-shadow 1px 1px 2px 0px rgba(0,0,0,0.2)
+  transition box-shadow .2s
+  &:hover
+    box-shadow 3px 3px 5px 0px rgba(0,0,0,0.3)
+
+$common-btn
+  padding .3em .5em
+  font-size 1rem
+  color white
+  border 2px solid
+  border-radius 4px
+  cursor pointer
+
+$add-btn
+  @extends $common-btn
+  background-color color-blue
+  &:hover
+    background-color color-blue-lighten-2
+
+$delete-btn
+  @extends $common-btn
+  float right
+  font-size .8rem
+  background-color color-red-darken-1
+  &:hover
+    background-color color-red-lighten-1

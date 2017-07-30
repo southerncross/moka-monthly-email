@@ -1,29 +1,38 @@
 <template>
 <div class="previewer">
-  <table :style="[{ width: '100%', height: '100%' }, commonTableStyle]" ref="email">
+  <table :style="{ width: '100%', backgroundColor: '#f4f4f6' }" ref="email">
     <tbody>
-      <!-- head -->
-      <tr :style="{ height: '104px', backgroundColor: '#f4f4f6' }">
-        <td align="center">
-          <email-header :tableStyle="commonTableStyle"/>
-        </td>
-      </tr>
-
-      <!-- body -->
       <tr>
-        <td align="center">
-          <email-body :bannerImgUrl="bannerImgUrl" :sections="sections" :tableStyle="commonTableStyle"/>
-        </td>
-      </tr>
+        <td>
+          <table class="root-table" :style="[{ width: '720px', height: '100%', margin: '0 auto' }, commonTableStyle]">
+            <tbody>
+              <!-- head -->
+              <tr>
+                <td align="center">
+                  <email-header :tableStyle="commonTableStyle"/>
+                </td>
+              </tr>
 
-      <!-- footer -->
-      <tr :style="{ height: '310px', backgroundColor: '#f4f4f6' }">
-        <td align="center" valign="bottom">
-          <email-footer :tableStyle="commonTableStyle"/>
+              <!-- body -->
+              <tr>
+                <td align="center">
+                  <email-body :bannerImgUrl="bannerImgUrl" :typeToSection="typeToSection" :tableStyle="commonTableStyle"/>
+                </td>
+              </tr>
+
+              <!-- footer -->
+              <tr>
+                <td :style="{ padding: '32px 0' }" valign="bottom">
+                  <email-footer :tableStyle="commonTableStyle"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </td>
       </tr>
     </tbody>
   </table>
+
   <button class="source-btn" @click="openSourceCodeModal">查看源代码</button>
   <div :class="['source-overlay', { active: showSourceCodeModal }]" @click="closeSourceCodeModal">
     <div class="source-modal" @click.stop="">
@@ -60,12 +69,14 @@ export default {
 
   props: {
     bannerImgUrl: String,
-    sections: Array
+    typeToSection: Object
   },
 
   data() {
     return {
       commonTableStyle: {
+        borderCollapse: 'collapse',
+        borderSpacing: '0',
         msoTableLspace: '0',
         msoTableRspace: '0',
         fontFamily: 'Helvetica Neue, Arial, Open Sans, Hiragino Sans GB, -apple-system, Lantinghei SC, Microsoft Yahei, sans-serif'
@@ -113,9 +124,13 @@ export default {
 @require '../palette'
 
 .previewer
+  padding 20px 0
   &:hover
     .source-btn
       right 20px
+
+.root-table
+  margin 0 auto
 
 .source-btn
   position fixed
